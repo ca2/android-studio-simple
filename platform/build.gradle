@@ -4,13 +4,19 @@ plugins {
 
 android {
     namespace 'platform.platform'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 26
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        externalNativeBuild {
+            cmake {
+                targets "release_all"
+                cppFlags ""
+            }
+        }
     }
 
     buildTypes {
@@ -19,6 +25,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+
+
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11

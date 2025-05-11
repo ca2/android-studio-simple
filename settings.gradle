@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = projectName
 include ':app'
+include ':app_app'
+include ':platform'

@@ -39,7 +39,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        minSdk 24
+        minSdk 26
         targetSdk 34
 
         applicationId project.properties['app.application_id']
@@ -84,6 +84,11 @@ android {
             }
         }
 
+    }
+
+
+    dependencies {
+        implementation project(":platform")
     }
 
     // Execute the preBuild task before the compilation
@@ -146,12 +151,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    externalNativeBuild {
-        cmake {
-            path file('src/main/cpp/CMakeLists.txt')
-            version '3.22.1'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path file('src/main/cpp/CMakeLists.txt')
+//            version '3.22.1'
+//        }
+//    }
     buildFeatures {
         buildConfig true
         viewBinding true
