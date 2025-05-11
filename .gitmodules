@@ -1,0 +1,4 @@
+[submodule "cpp"]
+	path = cpp
+	url = ../android-simple-cpp
+	branch = main
