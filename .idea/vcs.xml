@@ -2,5 +2,39 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/operating_system" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/operating_system/operating_system-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/operating_system/operating_system-posix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/archive" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/archive/archive" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/bzip2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/iconv" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/id3lib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/idn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/minizip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/mpg123" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/openddlparser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/pcre" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/pugixml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/sqlite" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/stb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/unac" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/zip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/zlib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/zstd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/debugbreak" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/jwt-cpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/nanosvg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/picojson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson/thirdparty/gtest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/source" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/source/app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/source/app-simple" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/source/console" vcs="Git" />
   </component>
 </project>
