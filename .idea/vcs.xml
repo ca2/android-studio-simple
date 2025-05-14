@@ -32,6 +32,21 @@
     <mapping directory="$PROJECT_DIR$/cpp/port/common/picojson" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson/thirdparty/gtest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/graphics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/graphics/cairo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/graphics/clipper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/graphics/freetype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/graphics/pixman" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/freeimage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/jpeg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/jxr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/openexr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/openjpeg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/png" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/rawlite" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/tiff4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/imaging/webp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/source" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/source/app" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/source/app-simple" vcs="Git" />
