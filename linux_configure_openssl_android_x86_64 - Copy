@@ -1,0 +1,14 @@
+export NDK_HOME=/c/Users/camilo/AppData/Local/Android/Sdk/ndk/27.0.12077973
+export API=28
+export TOOLCHAIN=$NDK_HOME/toolchains/llvm/prebuilt/windows-x86_64
+
+# Tell OpenSSL to use clang for Android x86_64
+export AR=$TOOLCHAIN/bin/llvm-ar
+export CC=$TOOLCHAIN/bin/x86_64-linux-android$API-clang
+export AS=$CC
+export CXX=$TOOLCHAIN/bin/x86_64-linux-android$API-clang++
+export LD=$CC
+export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+export STRIP=$TOOLCHAIN/bin/llvm-strip
+export PATH=$TOOLCHAIN/bin:$PATH
+./Configure shared android-x86_64 -D__ANDROID_API__=$API no-ssl3 no-comp no-engine --openssldir=~/port/build_openssl
