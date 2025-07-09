@@ -11,6 +11,7 @@
     <mapping directory="$PROJECT_DIR$/cpp/port/base/archive" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/archive/archive" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/bzip2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/glm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/iconv" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/id3lib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/idn" vcs="Git" />
@@ -21,6 +22,7 @@
     <mapping directory="$PROJECT_DIR$/cpp/port/base/pugixml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/sqlite" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/stb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/base/tinyobjloader" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/unac" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/zip" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/base/zlib" vcs="Git" />
