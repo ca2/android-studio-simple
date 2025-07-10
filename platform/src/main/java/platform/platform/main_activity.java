@@ -100,7 +100,7 @@ public class main_activity extends Activity
 		try
 		{
 
-			System.loadLibrary("_" + strApplicationLibraryName);
+			System.loadLibrary(strApplicationLibraryName);
 
 			bLoaded = true;
 
