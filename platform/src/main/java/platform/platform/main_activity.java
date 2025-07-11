@@ -16,7 +16,10 @@ import android.view.Display;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
 import java.lang.UnsatisfiedLinkError;
+import java.lang.reflect.Method;
+
 import android.util.Log;
+
 
 
 public class main_activity extends Activity 
@@ -99,6 +102,8 @@ public class main_activity extends Activity
 
 		try
 		{
+
+			System.loadLibrary("operating_ambient_android");
 
 			System.loadLibrary(strApplicationLibraryName);
 

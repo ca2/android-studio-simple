@@ -27,6 +27,7 @@ import java.util.concurrent.Executors;
 import static java.util.concurrent.TimeUnit.*;
 
 
+
 class impact extends View
 {
 
@@ -150,20 +151,34 @@ class impact extends View
 
 		m_mainactivity.m_bind.m_iHeight = m_iHeight;
 
-		m_mainactivity.aura_init(m_mainactivity.m_bind, m_mainactivity.m_assetmanager);
-
-		if(!m_mainactivity.aura_is_started())
+		try
 		{
 
-			m_mainactivity.aura_start();
+			m_mainactivity.aura_init(m_mainactivity.m_bind, m_mainactivity.m_assetmanager);
+
+			if(!m_mainactivity.aura_is_started())
+			{
+
+				m_mainactivity.aura_start();
+
+			}
+			else
+			{
+
+				aura_size_changed();
+
+			}
 
 		}
-		else
+		catch(UnsatisfiedLinkError unsatisfiedLinkError)
 		{
 
-			aura_size_changed();
+			String strUnsatisfiedLinkError = unsatisfiedLinkError.getMessage();
+
+			Log.i("platform.platform.main_activity", strUnsatisfiedLinkError);
 
 		}
+
 
 		m_mainactivity.update_mem_free_available();
 
@@ -608,6 +623,7 @@ class impact extends View
 //        }
 //
 //    }
+
 }
 
 

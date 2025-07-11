@@ -13,7 +13,11 @@ android {
         consumerProguardFiles "consumer-rules.pro"
         externalNativeBuild {
             cmake {
-                targets "_app_app", "iconv"
+                targets
+                    "_app_app"
+                    "iconv"
+                    "idn"
+                    "operating_ambient_android"
                 cppFlags ""
             }
         }
