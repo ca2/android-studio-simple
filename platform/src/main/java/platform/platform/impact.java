@@ -122,7 +122,6 @@ class impact extends View
 
 		m_lStartTime = System.currentTimeMillis();
 
-
 	}
 
 
@@ -154,12 +153,10 @@ class impact extends View
 		try
 		{
 
-			m_mainactivity.aura_init(m_mainactivity.m_bind, m_mainactivity.m_assetmanager);
-
-			if(!m_mainactivity.aura_is_started())
+			if(!m_mainactivity.application_is_started())
 			{
 
-				m_mainactivity.aura_start();
+				m_mainactivity.start_application();
 
 			}
 			else

@@ -25,6 +25,7 @@ import android.util.Log;
 public class main_activity extends Activity 
 {
 
+	int m_iSystemLayer = 3; // aura
 
 	impact m_impact;
 
@@ -32,15 +33,34 @@ public class main_activity extends Activity
 
 	public AssetManager m_assetmanager;
 
-	public static native void aura_init(bind bind, AssetManager assetManager);
+	// Will be called from C when the loop reaches the "ready" point
+	public static void on_android_main_ready()
+	{
+		synchronized (main_activity.class)
+		{
+			main_activity.class.notifyAll();
+		}
+	}
 
-	public static native void aura_start();
+	public static native void create_system(String strAppId);
+
+	public static native void initialize_system(bind bind, AssetManager assetManager);
+	public static native void application_main();
 
 	public static native void on_aura_message_box_response(long lMessageBoxSequence, long lMessageBoxResponse);
 
-	public static native boolean aura_is_started();
+	public static native boolean application_is_started();
 
 	private static native void sync_mem_free_available();
+
+	public void start_application()
+	{
+
+		new Thread(() -> {
+			application_main();
+		}, "application_main").start();
+
+	}
 
 
 	@Override
@@ -119,6 +139,8 @@ public class main_activity extends Activity
 
 		}
 
+		create_system(strApplicationIdentifier);
+
 		m_bind.m_strCacheDirectory = getApplicationContext().getCacheDir().getAbsolutePath();
 
 		Intent intent = getIntent();
@@ -138,6 +160,8 @@ public class main_activity extends Activity
 		}
 
 		m_assetmanager = getAssets();
+
+		initialize_system(m_bind, m_assetmanager);
 
 		m_impact = new impact(this);
 
@@ -223,5 +247,7 @@ public void onConfigurationChanged(Configuration newConfig)
             requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 15);
         }
     }
+
+
 
 }
