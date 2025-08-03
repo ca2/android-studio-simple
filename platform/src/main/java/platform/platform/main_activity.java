@@ -125,6 +125,8 @@ public class main_activity extends Activity
 
 			System.loadLibrary("operating_ambient_android");
 
+			System.loadLibrary("aura_windowing_android");
+
 			System.loadLibrary(strApplicationLibraryName);
 
 			bLoaded = true;
@@ -139,7 +141,20 @@ public class main_activity extends Activity
 
 		}
 
-		create_system(strApplicationIdentifier);
+		try
+		{
+
+			create_system(strApplicationIdentifier);
+
+		}
+		catch(UnsatisfiedLinkError unsatisfiedLinkError)
+		{
+
+			String strUnsatisfiedLinkError = unsatisfiedLinkError.getMessage();
+
+			Log.i("platform.platform.main_activity", strUnsatisfiedLinkError);
+
+		}
 
 		m_bind.m_strCacheDirectory = getApplicationContext().getCacheDir().getAbsolutePath();
 
