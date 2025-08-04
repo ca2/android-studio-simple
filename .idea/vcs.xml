@@ -35,6 +35,7 @@
     <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/common/rapidjson/thirdparty/gtest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/database" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cpp/port/database/libmysql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/graphics" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/graphics/cairo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/port/graphics/clipper" vcs="Git" />
@@ -54,6 +55,7 @@
     <mapping directory="$PROJECT_DIR$/cpp/source/app" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/source/app-simple" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cpp/source/console" vcs="Git" />
+    <mapping directory="H:/Users/camilo/code/android-studio-simple" vcs="Git" />
     <mapping directory="H:/Users/camilo/code/android-studio-simple/cpp" vcs="Git" />
     <mapping directory="H:/Users/camilo/code/android-studio-simple/cpp/operating_system" vcs="Git" />
     <mapping directory="H:/Users/camilo/code/android-studio-simple/cpp/operating_system/operating_system-android" vcs="Git" />

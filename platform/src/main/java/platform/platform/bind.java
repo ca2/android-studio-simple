@@ -26,6 +26,12 @@ class bind
 
    public boolean m_bHideKeyboard;
 
+   public boolean m_bApplicationReady;
+
+   public boolean m_bFpsRedraw = true;
+
+   public float m_fRequestFps = 1.f;
+
    public String m_strOpenUrl;
 
    public String m_strUserWallpaper;

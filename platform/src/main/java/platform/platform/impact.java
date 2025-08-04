@@ -5,8 +5,11 @@ import platform.platform.enumerate.enumerate;
 import java.util.List;
 import java.util.ArrayList;
 import java.lang.Runnable;
+import java.lang.Thread;
 
 import android.content.Context;
+import android.graphics.BlendMode;
+import android.graphics.Color;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.graphics.Bitmap;
@@ -25,7 +28,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.Executors;
 import static java.util.concurrent.TimeUnit.*;
-
+import android.graphics.Paint;
 
 
 class impact extends View
@@ -61,6 +64,12 @@ class impact extends View
 
 	public message_box		m_messagebox;
 
+	public boolean m_bApplicationStarted = false;
+
+	private Paint m_paintBackground;
+	private Paint m_paintText;
+	private long m_lPaintStartTime;
+
    private static native void render_impact(Bitmap bitmap, long time_ms);
 
 	private static native void native_on_timer();
@@ -95,14 +104,16 @@ class impact extends View
      Executors.newScheduledThreadPool(1);
 
 	private ScheduledFuture<?> m_timer;
+	private Thread m_threadRedraw;
 
-	
    public impact(main_activity mainactivity) 
    {
 
 		super(mainactivity);
 
-		m_editable = new editable();
+	   m_lPaintStartTime = 0;
+
+	   m_editable = new editable();
 
 		m_messageboxlist = new ArrayList < message_box >();
 		
@@ -122,6 +133,21 @@ class impact extends View
 
 		m_lStartTime = System.currentTimeMillis();
 
+	   // White background paint
+	   m_paintBackground = new Paint();
+	   m_paintBackground.setBlendMode(BlendMode.SRC_OVER);
+	   m_paintBackground.setColor(Color.argb(
+			   (float)(0.5),
+			   (float)(0.15 * 0.5),
+			   (float)(0.35 * 0.5),
+			   (float)(0.48 * 0.5)));
+
+	   // Text paint
+	   m_paintText = new Paint();
+	   m_paintText.setColor(Color.WHITE);
+	   m_paintText.setTextSize(80f);
+	   m_paintText.setTextAlign(Paint.Align.CENTER);
+
 	}
 
 
@@ -131,6 +157,76 @@ class impact extends View
 		String str = s.toString();
 
 		Log.d("on_editable_replace", "Text : \"" + str + "\"");
+
+	}
+
+
+	protected void deferRedrawThread()
+	{
+
+		if(m_threadRedraw != null)
+		{
+
+			return;
+
+		}
+
+		m_threadRedraw =
+				new Thread(() -> {
+					while(m_threadRedraw != null)
+					{
+
+						try
+						{
+
+							float fFps = m_bind.m_fRequestFps;
+
+							if(fFps <= 0.f)
+							{
+
+								fFps = 1;
+
+							}
+
+							float fMillis = 1000.f / fFps;
+
+							long millis = (long) fMillis;
+
+							if(millis < 10)
+							{
+
+								float fNanos = fMillis % 1.0f;
+
+								int nanos = (int) (fNanos * 1000000);
+
+								Thread.sleep(millis, nanos);
+
+							}
+							else
+							{
+
+								Thread.sleep(millis);
+
+							}
+
+						}
+						catch(java.lang.InterruptedException e)
+						{
+
+
+						}
+
+						if(m_bind.m_bFpsRedraw)
+						{
+
+							postInvalidate();
+
+						}
+
+					}
+				}, "keep_redrawing_while_starting_application");
+
+		m_threadRedraw.start();
 
 	}
 
@@ -153,8 +249,14 @@ class impact extends View
 		try
 		{
 
-			if(!m_mainactivity.application_is_started())
+			deferRedrawThread();
+
+			if(!m_bApplicationStarted)
 			{
+
+				m_bApplicationStarted = true;
+
+				m_bind.m_bApplicationReady = false;
 
 				m_mainactivity.start_application();
 
@@ -414,13 +516,89 @@ class impact extends View
 	}
 
 	
-   @Override
-	protected void onDraw(Canvas canvas) 
+   protected void onDrawNotReady(Canvas canvas)
+   {
+
+	   int wBorder;
+	   int hBorder;
+
+
+	   if(getWidth() < getHeight()) {
+
+		   wBorder = 20;
+		   hBorder = 100;
+		   // Fill whole view with white
+		   canvas.drawRect(wBorder,
+				   hBorder,
+				   getWidth() - wBorder * 2,
+				   getHeight() - hBorder * 2,
+				   m_paintBackground);
+
+	   }
+	   else
+	   {
+		   wBorder = 100;
+		   hBorder = 20;
+
+		   canvas.drawRect(wBorder,
+				   hBorder,
+				   getWidth() - wBorder * 2,
+				   getHeight() - hBorder * 2,
+				   m_paintBackground);
+
+	   }
+
+
+	   long lTimeNow = System.currentTimeMillis();
+
+	   if(m_lPaintStartTime == 0)
+	   {
+
+		   m_lPaintStartTime = lTimeNow;
+
+	   }
+
+	   int second = (int) ((lTimeNow - m_lPaintStartTime) / 1000);
+	   int mod = second % 4;  // alternate between 0 and 1
+
+	   String dots = ".".repeat(mod); // 1 dot when mod=0, 2 dots when mod=1
+
+
+	   // Build text with dots
+	   String text = "Loading" + dots;
+
+	   // Draw centered text
+	   float x = getWidth() / 2f;
+	   float y = getHeight() / 2f;
+	   canvas.drawText(text, x, y, m_paintText);
+
+   	}
+
+	protected void onDrawImpact(Canvas canvas)
 	{
 
 		render_impact(m_bitmap, System.currentTimeMillis() - m_lStartTime);
 
 		canvas.drawBitmap(m_bitmap, 0, 0, null);
+
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas)
+	{
+
+		if(!m_bind.m_bApplicationReady)
+		{
+
+			onDrawNotReady(canvas);
+
+		}
+		else
+		{
+
+			onDrawImpact(canvas);
+
+		}
 
 		if(m_bind.m_bRedraw)
 		{

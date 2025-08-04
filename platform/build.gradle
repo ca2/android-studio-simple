@@ -13,7 +13,17 @@ android {
         consumerProguardFiles "consumer-rules.pro"
         externalNativeBuild {
             cmake {
-                targets "_app_app", "operating_ambient_android", "idn"
+                targets "_app_app",
+                        "operating_ambient_android",
+                        "windowing_android",
+                        "idn",
+                        "nano_graphics_cairo",
+                        "cairo",
+                        "pixman",
+                        "acme",
+                        "zlib",
+                        "folder_zip",
+                        "draw2d_cairo"
                 cppFlags ""
             }
         }

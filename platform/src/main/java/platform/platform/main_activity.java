@@ -49,7 +49,7 @@ public class main_activity extends Activity
 
 	public static native void on_aura_message_box_response(long lMessageBoxSequence, long lMessageBoxResponse);
 
-	public static native boolean application_is_started();
+	//public static native boolean application_is_started();
 
 	private static native void sync_mem_free_available();
 
