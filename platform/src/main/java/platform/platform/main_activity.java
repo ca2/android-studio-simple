@@ -125,7 +125,7 @@ public class main_activity extends Activity
 
 			System.loadLibrary("operating_ambient_android");
 
-			System.loadLibrary("aura_windowing_android");
+			System.loadLibrary("windowing_android");
 
 			System.loadLibrary(strApplicationLibraryName);
 

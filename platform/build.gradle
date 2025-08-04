@@ -14,6 +14,7 @@ android {
         externalNativeBuild {
             cmake {
                 targets "_app_app",
+                        "_app_simple_drawing",
                         "operating_ambient_android",
                         "windowing_android",
                         "idn",
@@ -23,7 +24,29 @@ android {
                         "acme",
                         "zlib",
                         "folder_zip",
-                        "draw2d_cairo"
+                        "draw2d_cairo",
+                        "nano2d",
+                        "unac",
+                        "imaging_freeimage",
+                        "write_text_android",
+                        "database_sqlite3",
+                        "experience_core",
+                        "crypto_openssl",
+                        "base",
+                        "axis",
+                        "apex",
+                        "aqua",
+                        "acme_posix",
+                        "apex_posix",
+                        "aura_posix",
+                        "acme_android",
+                        "apex_android",
+                        "aura_android",
+                        "node_android",
+                        "acme_windowing_android",
+                        "freeimage",
+                        "png",
+                        "jpeg"
                 cppFlags ""
             }
         }

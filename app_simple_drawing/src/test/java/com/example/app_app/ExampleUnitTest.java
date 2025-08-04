@@ -1,4 +1,4 @@
-package com.example.app_app;
+package com.example.app_simple_drawing;
 
 import org.junit.Test;
 

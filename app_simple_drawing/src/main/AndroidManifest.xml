@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Raymob">
         <activity
-            android:name=".app_app"
+            android:name=".app_simple_drawing"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"

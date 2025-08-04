@@ -13,7 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = projectName
-include ':app'
 include ':app_app'
+include ':app_simple_drawing'
+include ':app_simple_nanoui_example'
 include ':platform'
 
