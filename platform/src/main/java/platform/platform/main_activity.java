@@ -127,6 +127,8 @@ public class main_activity extends Activity
 
 			System.loadLibrary("windowing_android");
 
+			System.loadLibrary("berg");
+
 			System.loadLibrary(strApplicationLibraryName);
 
 			bLoaded = true;
