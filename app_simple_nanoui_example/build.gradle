@@ -21,6 +21,19 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            // Prevent ProGuard/R8 from stripping (not needed for debug normally)
+            minifyEnabled false
+            // Prevents stripping of debug symbols
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+            packagingOptions {
+                doNotStrip "**/*.so"
+            }
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
