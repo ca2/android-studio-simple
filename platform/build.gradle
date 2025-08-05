@@ -32,7 +32,7 @@ android {
                         "database_sqlite3",
                         "experience_core",
                         "crypto_openssl",
-                        "base",
+                        "berg",
                         "axis",
                         "apex",
                         "aqua",
