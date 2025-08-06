@@ -65,6 +65,7 @@ class impact extends View
 	public message_box		m_messagebox;
 
 	public boolean m_bApplicationStarted = false;
+	public boolean m_bApplicationReadyAtImpact = false;
 
 	private Paint m_paintBackground;
 	private Paint m_paintText;
@@ -216,6 +217,20 @@ class impact extends View
 
 						}
 
+						if(!m_bApplicationReadyAtImpact)
+						{
+
+							if(m_bind.m_bApplicationReady)
+							{
+
+								m_bApplicationReadyAtImpact = true;
+
+								aura_size_changed();
+
+							}
+
+						}
+
 						if(m_bind.m_bFpsRedraw)
 						{
 
@@ -255,6 +270,8 @@ class impact extends View
 			{
 
 				m_bApplicationStarted = true;
+
+				m_bApplicationReadyAtImpact = false;
 
 				m_bind.m_bApplicationReady = false;
 
