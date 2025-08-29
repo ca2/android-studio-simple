@@ -2,7 +2,7 @@ package platform;
 
 import android.os.Bundle;
 
-import com.example.app_app.databinding.ActivityFullscreenBinding;
+//import com.example.app_app.databinding.ActivityFullscreenBinding;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
